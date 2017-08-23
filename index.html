@@ -1,0 +1,111 @@
+<!doctype html><!--声明文档类型为html5-->
+<html>
+     <head>
+	      <!--声明页面编码 uft-8 国际编码-->
+          <meta charset="UTF-8">
+          <!--网页三要素 关键字 页面描述 标题-->
+          <meta name="Keywords" content="">
+          <meta name="Description" content="">
+          <title>个人旅行网</title>
+		  <!--css层叠样式表 衣服化妆品-->
+		  <style>
+		  *{
+		   margin:0;
+		   padding:0;
+		   }
+		   li{list-style:none;}
+		   html,body{
+		   width:100%;
+		   height:100%;
+		   }
+		  #pic{
+		  width:100%;
+		  height:100%;
+		  /*background:red;背景（复合型）*/
+		  position:relative;
+		  }
+		  #pic ul{
+		     height:100%;
+		  }
+		  #pic ul li{
+		  width:100%;
+		  height:100%;
+		  background-repeat:no-repeat;
+          background-position:center center;
+          background-size:cover;
+		  position:absolute;
+		  top:0;
+		  left:0;
+		  display:none;
+		  }
+		  #pic ul li:nth-child(1){background-image:url('images/1.jpg');display:block;}
+		  #pic ul li:nth-child(2){background-image:url('images/2.jpg');}
+		  #pic ul li:nth-child(3){background-image:url('images/3.jpg');}
+		  #pic ul li:nth-child(4){background-image:url('images/4.jpg');}
+		  #pic-list{
+		      width:1090px;
+			  height:440px;
+			  background:red;
+			  position:absolute;
+			  left:0;
+			  right:0;
+			  margin:0 auto;
+			  top:200px;
+			  overflow:hidden;
+		  }
+          #pic-list ul li{
+		      width:790px;
+			  height:440px;
+		  background-repeat:no-repeat;/* 不平铺 */
+          background-position:center center;
+          background-size:cover;
+		  position:absolute;
+		  top:0;
+		  }
+		  #pic-list ul li:nth-child(1){background-image:url('images/1.jpg');left:0;}
+		  #pic-list ul li:nth-child(2){background-image:url('images/2.jpg');left:790px;}
+		  #pic-list ul li:nth-child(3){background-image:url('images/3.jpg');left:890px;}
+		  #pic-list ul li:nth-child(4){background-image:url('images/4.jpg');left:990px;}
+           #pic-list ul li p{
+		   width:12px;
+		   height:420px;
+		   font-size:12px;
+		   background:rgba(0,0,0,0.5);
+		   padding:50px 44px;
+		   color:#fff;
+		   }
+		  </style>
+    </head>
+    <body>
+    <div id="pic">
+		 <ul>
+		     <li></li>
+			 <li></li>
+			 <li></li>
+			 <li></li>
+		 </ul>
+	</div>
+	<div id="pic-list">
+	     <ul>
+		     <li><p>我的个人拉萨之旅故事之城</P></li>
+			 <li><p>我的个人拉萨之旅故事之城</P></li>
+			 <li><p>我的个人拉萨之旅故事之城</P></li>
+			 <li><p>我的个人拉萨之旅故事之城</P></li>
+		 </ul>
+	</div>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+	$('#pic-list ul li').hover(function(){
+       var a = $(this).index();
+	   for(var i=0;i<4;i++){
+		 if(i<=a){
+		 $('#pic-list ul li').eq(i).stop().animate({left:i*100+'px'},500)
+		 }else{
+	     $('#pic-list ul li').eq(i).stop().animate({left:690+100*i+'px'},500)
+	     }
+	   }
+        $('#pic ul li').eq(a).fadeIn().siblings().fadeOut();
+	});
+	</script>
+    </body>
+</html>
